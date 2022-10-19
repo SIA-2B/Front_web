@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useLazyQuery } from "@apollo/client";
 import { GET_PENDING_CITATIONS } from "../features/citations/citations.querys";
 
 const Citations = () => {
@@ -17,7 +17,7 @@ const Citations = () => {
 			<div>
 				Citaciones Pendientes:
 				{data.getPendingCitations.pendingCitations.map((item) => (
-					<div key={item.id}>{item.id}</div>
+					<div key={item.id}>{item.id} - {item.initial_time}:{item.final_time}</div>
 				))}
 			</div>
 		</>
