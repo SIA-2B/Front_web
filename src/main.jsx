@@ -4,6 +4,7 @@ import App from "./App";
 import Citations from "./pages/Citations";
 import Login from "./pages/Login";
 import AcedemicInfo from "./pages/Academic_info";
+import PersonalInfo from "./pages/PersonalInfo";
 import "./index.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import {
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
 			<Route path="citations" element={<Citations />} />
 			<Route path="login" element={<Login />} />
 			<Route path="academicInfo" element={<AcedemicInfo />} />
+			<Route path="personal_info" element={<PersonalInfo />} />
 			{/* ... etc. */}
 		</Route>
 	)
