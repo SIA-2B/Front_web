@@ -23,6 +23,7 @@ const Courses = () => {
 			<div>
 				<input onChange={(e) => setExample(e.target.value)}></input>
 				<div className="title">Cursos</div>
+				<h1>Hola</h1>
 				{data.getCursosById.map((item) => (
 					<div key={item.id} className='courses-row'>
 						<span>{item.id}</span>

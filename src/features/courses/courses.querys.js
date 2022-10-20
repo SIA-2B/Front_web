@@ -19,8 +19,9 @@ query getAllCuursos{
 
 export const GET_COURSES_BY_ID = gql`
 query getCursosById($id: String!){
-    getCursosById(id: $id){
-        cursosById{
+    cursosById(datos:{
+        id:$id
+    }){
         id
         nombre
         creditos
