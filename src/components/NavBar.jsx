@@ -20,7 +20,7 @@ const Navbar = () => {
 						<Link to={"citations"}>Citations</Link>
 					</li>
 					<li>
-						<Link to={"/"}>???</Link>
+						<Link to={"academicInfo"}>Informacion Academica</Link>
 					</li>
 					<li>
 						<Link to={"/"}>???</Link>
