@@ -1,36 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useMutation  } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { GET_TOKEN } from "../features/auth/auth.mutations";
 
 const Login = () => {
-	const { loading, error, data } = useMutation (GET_TOKEN, {
-		
-	});
+  const [getToken, result] = useMutation(GET_TOKEN);
 
-	// const [example, setExample] = useState(null);
+  // const [example, setExample] = useState(null);
 
-	// useEffect(() => {
-	// 	document.title = `${example}`;
-	//   }, [example]);
+  // useEffect(() => {
+  // 	document.title = `${example}`;
+  //   }, [example]);
 
-	console.log("Esto es la respuesta",data);
+  console.log("Esto es la respuesta", result);
 
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>Error {error}</div>;
+  // if (loading) return <div>Loading...</div>;
+  // if (error) return <div>Error {error}</div>;
 
-	return (
-		<>
-			<div>
-				<input onChange={(e) => setExample(e.target.value)}></input>
-				<div className="title">Login</div>
-				{data.createAuth.map((item) => (
-					<div key={item.token} className='token-row'>
-						<span>{item.token}</span>
-					</div>
-				))}
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div>
+        {/* <input onChange={(e) => setExample(e.target.value)}></input> */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            getToken({ variables: {parameter:{username:"developer",password:"developer"}} });
+          }}
+        >Login</button>
+        <div className="title"></div>
+        
+      </div>
+    </>
+  );
 };
 
 export default Login;
