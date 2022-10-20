@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_COURSES, GET_COURSES_BY_ID } from "../features/courses/courses.querys";
+import { useLazyQuery } from "@apollo/client";
+import {
+	GET_COURSES,
+	GET_COURSES_BY_ID,
+} from "../features/courses/courses.querys";
 
 const Courses = () => {
-	const result = useQuery(GET_COURSES);
+	const [getCourse, { data, loading, error }] = useLazyQuery(GET_COURSES_BY_ID);
 
-	console.log(result);
-
-	// if (loading) return <div>Loading...</div>;
-	// if (error) return <div>Error {error}</div>;
+	const [courseId, setCourseId] = useState("");
 
 	return (
 		<>
 			<div>
-				<div className="title">Cursos</div>
-				<h1>Hola</h1>
+				<h2>Buscador de Cursos</h2>
+				<h3>Por Id:</h3>
+				<input
+					value={courseId}
+					onChange={(e) => setCourseId(e.target.value)}
+				></input>
+				<button onChange={getCourse({ variables: { id: courseId } })}>
+					Buscar
+				</button>
 				{/* {data.getCursosById.map((item) => (
 					<div key={item.id} className='courses-row'>
 						<span>{item.id}</span>
