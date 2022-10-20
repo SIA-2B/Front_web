@@ -12,14 +12,18 @@ import {
 } from "react-router-dom";
 
 const client = new ApolloClient({
-	uri: "http://localhost:5001/graphql",
+	uri: "http://localhost:5000/graphql",
+	
 	cache: new InMemoryCache(),
 });
 
+
+
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" element={<Citations />}>
+		<Route path="/" element={<App />}>
 			<Route path="citations" element={<Citations />} />
+			<Route path="courses" element={<Courses />} />
 			{/* ... etc. */}
 		</Route>
 	)
