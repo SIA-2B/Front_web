@@ -1,25 +1,17 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { GET_PENDING_CITATIONS } from "../features/citations/citations.querys";
+import React, { useState, useEffect } from "react";
+import "../styles/citations.css";
+import { PendingCitations } from "../components/PendingCitations";
+import { HistoricCitations } from "../components/HistoricCitations";
 
 const Citations = () => {
-	const { loading, error, data } = useQuery(GET_PENDING_CITATIONS, {
-		variables: { student_id: 10 },
-	});
-
-	console.log(data);
-
-	if (loading) return <div>Loading...</div>;
-	if (error) return <div>Error {error}</div>;
-
+	useEffect(() => {
+		document.title = "Citaciones";
+	}, []);
+	
 	return (
 		<>
-			<div>
-				Citaciones Pendientes:
-				{data.getPendingCitations.pendingCitations.map((item) => (
-					<div key={item.id}>{item.id}</div>
-				))}
-			</div>
+			<PendingCitations />
+			<HistoricCitations />
 		</>
 	);
 };
