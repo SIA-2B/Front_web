@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import Citations from "./pages/Citations";
+import PersonalInfo from "./pages/PersonalInfo";
 import "./index.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import {
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<App />}>
 			<Route path="citations" element={<Citations />} />
+			<Route path="personal_info" element={<PersonalInfo />} />
 			{/* ... etc. */}
 		</Route>
 	)

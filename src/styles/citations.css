@@ -1,0 +1,23 @@
+.citation-row {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 3px grey;
+}
+
+.citation-row > .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+span.info {
+    font-weight: bold;
+    font-size: 10px;
+    color: grey;
+}
