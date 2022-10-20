@@ -5,25 +5,21 @@ import { GET_TOKEN } from "../features/auth/auth.mutations";
 const Login = () => {
   const [getToken, result] = useMutation(GET_TOKEN);
 
-  // const [example, setExample] = useState(null);
-
-  // useEffect(() => {
-  // 	document.title = `${example}`;
-  //   }, [example]);
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
 
   console.log("Esto es la respuesta", result);
 
-  // if (loading) return <div>Loading...</div>;
-  // if (error) return <div>Error {error}</div>;
 
   return (
     <>
       <div>
-        {/* <input onChange={(e) => setExample(e.target.value)}></input> */}
+        <input value={username} onChange={(e) => setUsername(e.target.value)}></input> 
+        <input value={password} onChange={(e) => setPassword(e.target.value)}></input>
         <button
           onClick={(e) => {
             e.preventDefault();
-            getToken({ variables: {parameter:{username:"developer",password:"developer"}} });
+            getToken({ variables: {parameter:{username:username,password:password}} });
           }}
         >Login</button>
         <div className="title"></div>

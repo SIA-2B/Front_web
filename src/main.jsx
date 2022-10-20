@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Citations from "./pages/Citations";
 import Login from "./pages/Login";
+import AcedemicInfo from "./pages/Academic_info";
 import "./index.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import {
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<App />}>
 			<Route path="citations" element={<Citations />} />
 			<Route path="login" element={<Login />} />
+			<Route path="academicInfo" element={<AcedemicInfo />} />
 			{/* ... etc. */}
 		</Route>
 	)
