@@ -18,7 +18,7 @@ const client = new ApolloClient({
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
-		<Route path="/" element={<Citations />}>
+		<Route path="/" element={<App />}>
 			<Route path="citations" element={<Citations />} />
 			{/* ... etc. */}
 		</Route>
