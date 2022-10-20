@@ -1,0 +1,24 @@
+.personal-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.personal-info .info-card {
+    flex: 1;
+    border: 1px solid black;
+    min-width: 200px;
+    padding: 10px;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 10px;
+}
+
+.info {
+    font-weight: bold;
+}
+.title {
+    color: grey;
+    font-size: 10px;
+}
