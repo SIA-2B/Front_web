@@ -16,14 +16,14 @@ const Login = () => {
     <>
       <div className="login-form">
         <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Username'></input> 
-        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña'></input>
+        <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Contraseña' type="password"></input>
         <button
           onClick={(e) => {
             e.preventDefault();
             getToken({ variables: {parameter:{username:username,password:password}} });
           }}
         >Login</button>
-        <div className="title"></div>
+        {result.data && <div className="">Este es el token: {result.data.createAuth.token}</div>}
         
       </div>
     </>

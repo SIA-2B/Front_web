@@ -14,6 +14,10 @@ function App() {
 	return (
 		<div>
 			<Navbar />
+			<div className="">
+				<h1>Bienvenidos al SIA</h1>
+				<div className="cub-title">Sistema de Informacion Academica</div>
+			</div>
 			<Outlet />
 		</div>
 	);
