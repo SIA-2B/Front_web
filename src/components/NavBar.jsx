@@ -23,7 +23,7 @@ const Navbar = () => {
 						<Link to={"academicInfo"}>Informacion Academica</Link>
 					</li>
 					<li>
-						<Link to={"/"}>???</Link>
+						<Link to={"grades"}>Calificaciones</Link>
 					</li>
 					<li>
 						<Link to={"/"}>???</Link>

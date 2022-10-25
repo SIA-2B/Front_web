@@ -5,6 +5,7 @@ import Citations from "./pages/Citations";
 import Login from "./pages/Login";
 import AcedemicInfo from "./pages/Academic_info";
 import PersonalInfo from "./pages/PersonalInfo";
+import Grades from "./pages/Grades"
 import "./index.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import {
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
 			<Route path="login" element={<Login />} />
 			<Route path="academicInfo" element={<AcedemicInfo />} />
 			<Route path="personal_info" element={<PersonalInfo />} />
+			<Route path="grades" element={<Grades/>} /> 
 			{/* ... etc. */}
 		</Route>
 	)
