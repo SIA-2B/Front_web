@@ -19,3 +19,35 @@ query getDatosById($student_id: String!, $study_plan_name: String!){
     }
   }
 `;
+
+export const GET_ALL_DATA = gql`
+query get_all_data{
+  allDatos {
+    _id
+    student_id
+    credits_id
+    papa
+    pa
+    papi
+    study_plan_id
+    study_plan_name
+    facultad
+    active
+  }
+}
+`;
+
+export const GET_ALL_COURSES = gql`
+query get_all_courses{
+  allCourses {
+    _id
+    datos_id
+    codigo_id
+    name
+    credit
+    periodo
+    nota
+    plan
+  }
+}
+`;
