@@ -8,26 +8,28 @@ export const GET_COURSES = gql`
 			creditos
 			tipologia
 			sede
-			nivel_estudio
+			nivelestudio
 			facultad
 			descripcion
+			prerequisitos
 			codigo
 		}
 	}
 `;
 
 export const GET_COURSES_BY_ID = gql`
-	query getCursosById($id: String!) {
-		cursosById(id: $id) {
-			id
-			nombre
-			creditos
-			tipologia
-			sede
-			nivel_estudio
-			facultad
-			descripcion
-			codigo
-		}
+query getCursosById($id: String!){
+	cursosById(id: $id){
+	  id
+	  nombre
+	  creditos
+	  tipologia
+	  sede
+	  nivelestudio
+	  facultad
+	  descripcion
+	  prerequisitos
+	  codigo
+	}
 	}
 `;
