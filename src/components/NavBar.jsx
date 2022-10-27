@@ -26,6 +26,9 @@ const Navbar = () => {
 						<Link to={"courses"}>Cursos</Link>
 					</li>
 					<li>
+						<Link to={"grades"}>Calificaciones</Link>
+					</li>
+					<li>
 						<Link to={"/"}>???</Link>
 					</li>
 				</ul>
