@@ -1,8 +1,10 @@
 import React, {useState,useEffect,useMemo,useContext} from "react";
-
+import { useQuery } from "@apollo/client";
+import { GET_PLANES } from "../features/courses/courses.querys";
 const SelectContext = React.createContext();
 
 export function SelectProvider(props){
+    const cur  = useQuery(GET_PLANES);
     const [selectId,setselectId] = useState("Any");
     const [selectNombre,setselectNombre] = useState("Any");
     const [selectCreditos,setselectCreditos] = useState("Any");
@@ -13,36 +15,28 @@ export function SelectProvider(props){
     const [selectCarrera,setselectCarrera] = useState("Any");
 
     const handleSeselectId =({value})=>{
-        console.log(value);
         setselectId(value)
     }
     const handleSelectNombre=({value})=>{
-        console.log(value);
         setselectNombre(value)
     }
     const handleSelectCreditos =({value})=>{
-        console.log(value);
         setselectCreditos(value)
     }
     const handleSelecTipologia =({value})=>{
-        console.log(value);
         setselectTipologia(value)
     }
     const handleSelecSede =({value})=>{
-        console.log(value);
         setselectSede(value)
     }
     const handleSelectNivelestudio =({value})=>{
-        console.log(value);
         setselectNivelestudio(value)
     }
     const handleSelectFacultad =({value})=>{
-        console.log(value);
         setselectFacultad(value)
     }
     const handleSelectCarrera =({value})=>{
-        console.log(value);
-        setselectFacultad(value)
+        setselectCarrera(value)
     }
 
 
@@ -56,6 +50,7 @@ export function SelectProvider(props){
             selectNivelestudio,
             selectFacultad,
             selectCarrera,
+            cur,
             handleSelecTipologia,
             handleSelectCreditos,
             handleSelectNombre,
@@ -63,9 +58,10 @@ export function SelectProvider(props){
             handleSelecSede,
             handleSelectNivelestudio,
             handleSelectFacultad,
-            handleSelectCarrera
+            handleSelectCarrera,
+
         })
-    },[selectId,selectNombre,selectCreditos,selectTipologia,selectSede,selectNivelestudio,selectFacultad,selectCarrera])
+    },[selectId,selectNombre,selectCreditos,selectTipologia,selectSede,selectNivelestudio,selectFacultad,selectCarrera,cur])
 
     return <SelectContext.Provider value={value} {...props}/>
 }

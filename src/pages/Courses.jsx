@@ -7,6 +7,7 @@ import {
 import { CoursesA } from "../components/CoursesA";
 import { Opciones} from "../components/Selects";
 import { SelectProvider,useSelect } from "../context/SelectContext";
+import "../styles/courses.css";
 
 
 
@@ -19,12 +20,9 @@ const Courses = () => {
 	const {selectId} = useSelect();
 	const [getCourse, { data, loading, error }] = useLazyQuery(GET_COURSES_BY_ID);
 
-
-
 	const cur = useQuery(GET_COURSES);
 	const [getAllCourse,result] = useLazyQuery(GET_COURSES);
 
-	const [courseId, setCourseId] = useState("");
 
 	console.log(getAllCourse)
 	
@@ -33,17 +31,17 @@ const Courses = () => {
 
 		<div>
 
-			<h2>Buscador de Cursos</h2>
-			<h5>Por Id:</h5>
+			<h2>Buscador de Cursos <br/> <br/> </h2>
 			
 			{ cur.data &&
 				<Opciones opc = {cur.data?.allCursos} />
 			}
 
-			<input
+			{/* <input
 				value={courseId}
 				onChange={(e) => setCourseId(e.target.value)}
 			></input>
+			
 			<button
 				onClick={(e) => {
 					e.preventDefault();
@@ -52,8 +50,8 @@ const Courses = () => {
 				
 			>
 				Buscar
-			</button>
-
+			</button> */}
+			<div><br/></div>
 			<button
 				onClick={(e) => {
 					e.preventDefault();
@@ -61,7 +59,8 @@ const Courses = () => {
 					
 				}}
 			>
-				Todos los Cursos
+				
+				<h3>Buscar</h3>
 			</button>
 
 
