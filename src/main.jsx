@@ -17,7 +17,7 @@ import {
 } from "react-router-dom";
 
 const client = new ApolloClient({
-	uri: "http://ebb6-168-176-40-196.ngrok.io/graphql",
+	uri: "http://localhost:5000/graphql",
 	
 	cache: new InMemoryCache(),
 });

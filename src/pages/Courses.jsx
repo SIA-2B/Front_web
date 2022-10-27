@@ -1,35 +1,85 @@
-import React, { useState, useEffect } from "react";
-import { useLazyQuery } from "@apollo/client";
+import React, { useState, useEffect, useContext } from "react";
+import { useLazyQuery,useQuery } from "@apollo/client";
 import {
 	GET_COURSES,
 	GET_COURSES_BY_ID,
 } from "../features/courses/courses.querys";
+import { CoursesA } from "../components/CoursesA";
+import { Opciones} from "../components/Selects";
+import { SelectProvider,useSelect } from "../context/SelectContext";
+import "../styles/courses.css";
+
+
+
+
+
+
 
 import '../styles/courses.css'
 
 const Courses = () => {
+
+	const {selectId} = useSelect();
 	const [getCourse, { data, loading, error }] = useLazyQuery(GET_COURSES_BY_ID);
 
-	const [courseId, setCourseId] = useState("");
+	const cur = useQuery(GET_COURSES);
+	const [getAllCourse,result] = useLazyQuery(GET_COURSES);
+
+
+	console.log(getAllCourse)
+	
 
 	return (
+
 		<div>
-			<h2>Buscador de Cursos</h2>
-			<h3>Por Id:</h3>
-			<input
+
+			<h2>Buscador de Cursos <br/> <br/> </h2>
+			
+			{ cur.data &&
+				<Opciones opc = {cur.data?.allCursos} />
+			}
+
+			{/* <input
 				value={courseId}
 				onChange={(e) => setCourseId(e.target.value)}
 			></input>
+			
 			<button
 				onClick={(e) => {
 					e.preventDefault();
 					getCourse({ variables: { id: courseId } });
 				}}
+				
 			>
 				Buscar
+			</button> */}
+			<div><br/></div>
+			<button
+				onClick={(e) => {
+					e.preventDefault();
+					getAllCourse();
+					
+				}}
+			>
+				
+				<h3>Buscar</h3>
 			</button>
+
+
+			<div>
+				{ result.data &&
+					<CoursesA cursos ={result.data?.allCursos}/>
+				}
+				
+			</div>
+			
+
+
+
+
 			{data && (
 				<div>
+					<h1></h1>
 					<h5>Curso Encontrado: </h5>
 					<div className="course-card">
 						<div className="info">
@@ -74,5 +124,7 @@ const Courses = () => {
 		</div>
 	);
 };
-
 export default Courses;
+
+
+
