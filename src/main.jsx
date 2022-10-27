@@ -6,6 +6,7 @@ import Courses from "./pages/Courses";
 import Login from "./pages/Login";
 import AcedemicInfo from "./pages/Academic_info";
 import PersonalInfo from "./pages/PersonalInfo";
+import Grades from "./pages/Grades"
 import "./index.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import {
@@ -16,7 +17,7 @@ import {
 } from "react-router-dom";
 
 const client = new ApolloClient({
-	uri: "http://ebb6-168-176-40-196.ngrok.io/graphql",
+	uri: "http://localhost:5000/graphql",
 	
 	cache: new InMemoryCache(),
 });
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
 			<Route path="login" element={<Login />} />
 			<Route path="academicInfo" element={<AcedemicInfo />} />
 			<Route path="personal_info" element={<PersonalInfo />} />
+			<Route path="grades" element={<Grades/>} /> 
 			{/* ... etc. */}
 		</Route>
 	)
