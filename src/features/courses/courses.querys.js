@@ -2,16 +2,17 @@ import { gql } from "@apollo/client";
 
 
 export const GET_GROUPS_BY_CURSO = gql`
-query getCursosById($idCurso: String!){
-		cursosById(idCurso: $idCurso){
-			id
-			numero
-			id_profesor
-			cupos
-			horario
-			lugar
-			idCurso	
-	}
+query getGruposByCurso($idCurso: String!){
+	gruposByCurso(idCurso: $idCurso){
+		id
+		numero
+		cupos
+		idprofesor
+		horario
+		lugar
+		idCurso
+    
+  }
 }
 `;
 
