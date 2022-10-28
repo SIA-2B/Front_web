@@ -78,7 +78,7 @@ export const Opciones = ({opc}) =>{
                 onChange = {handleSelectCreditos}
             />
             <div></div>
-            <h5 className="title1">Facultad:</h5>
+            <h5 className="title1">Tipologia:</h5>
             <Select
                 className="title2"
                 defaultValue={resultD[resultD.length-1]}
