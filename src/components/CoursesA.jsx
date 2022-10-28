@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelect } from "../context/SelectContext";
 import { GET_COURSES_BY_PLAN } from "../features/courses/courses.querys";
 import { useLazyQuery,useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 export const CoursesA=({cursos}) =>{
 	if (cursos==null) return null
@@ -76,21 +77,53 @@ export const CoursesA=({cursos}) =>{
 
 	return(
 		<div>
-			<h2>Cursos</h2>
-			{arr.map(c=>  
+			<table class="title3">
+			<tr>
 
-			<div key={c.id}>
-				{c.id}
-				{c.nombre}
-				{c.creditos}
-				{c.tipologia}
-				{c.sede}
-				{c.nivelestudio}
-				{c.facultad}
-			</div>
+				<th class="title3">ID</th>
+
+				<th class="title3">Nombre</th>
+
+				<th class="title3">Creditos</th>
+
+				<th class="title3">Tipologia</th>
+
+				<th class="title3">Sede</th>
+
+				<th class="title3">NivelEstudio</th>
+
+				<th class="title3">Facultad</th>
+
+			</tr>
+
+			{arr.map(c=>  
+			
+			<tr key={c.id} >
 				
-				
+				<Link to={"/groups"}
+				onClick={(e) => {
+					a.idGrupo=c.id
+					
+				}}>
+				<th class="title3">{c.id}</th>
+				</Link>
+				<th class="title3">{c.nombre}</th>
+
+				<th class="title3">{c.creditos}</th>
+
+				<th class="title3">{c.tipologia}</th>
+
+				<th class="title3">{c.sede}</th>
+
+				<th class="title3">{c.nivelestudio}</th>
+
+				<th class="title3">{c.facultad}</th>
+
+			</tr>
+
 			)}
+
+			</table>
 		</div>
 	)
 }

@@ -14,6 +14,7 @@ import {
 	RouterProvider,
 	Route,
 } from "react-router-dom";
+import Grupos from "./pages/Grupos";
 
 const client = new ApolloClient({
 	uri: "http://localhost:5000/graphql",
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<App />}>
 			<Route path="citations" element={<Citations />} />
 			<Route path="courses" element={<Courses />} />
+			<Route path="groups" element={<Grupos/>} />
 			<Route path="login" element={<Login />} />
 			<Route path="academicInfo" element={<AcedemicInfo />} />
 			<Route path="personal_info" element={<PersonalInfo />} />
