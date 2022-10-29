@@ -3,6 +3,7 @@ import { useSelect } from "../context/SelectContext";
 import { GET_COURSES_BY_ID, GET_COURSES_BY_PLAN, GET_GROUPS_BY_CURSO } from "../features/courses/courses.querys";
 import { useLazyQuery,useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import "../styles/courses.css";
 
 export const Grupos=() =>{
 
@@ -19,26 +20,32 @@ export const Grupos=() =>{
 
 
     return (
-        <div>
-            <h1>Grupos</h1>
-
+        <div >
+            <h1>Grupos {curso.data?.cursosById.nombre}</h1>
+            <br/>
+            <h3 class="title3" >Información Académica</h3>
+            <div class="title3">
+            {curso.data?.cursosById.descripcion}
+            </div>
+            <br/>
 			
             {grupos.data?.gruposByCurso.map(c=>
-                <div>
+                <div class="title3">
+                <br/>
 
-                <div class="title3">{c.id}</div>
+                <h3>Informacion Grupo</h3>             
 
-                <div class="title3">{c.numero}</div>
+                <div>ID: &nbsp; {c.id}</div>
 
-                <div class="title3">{c.cupos}</div>
+                <div>Grupo#:&nbsp;{c.numero}</div>
 
-                <div class="title3">{c.idprofesor}</div>
+                <div>Cupos Disponibles:&nbsp;{c.cupos}</div>
 
-                <div class="title3">{c.horario}</div>
+                <div>Profesor:&nbsp;{c.idprofesor}</div>
 
-                <div class="title3">{c.lugar}</div>
+                <div>Horario: &nbsp;{c.horario}</div>
 
-                <div class="title3">{c.idCurso}</div>
+                <div>Lugar:&nbsp;{c.lugar}</div>
 
 
                 </div>
