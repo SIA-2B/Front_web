@@ -19,10 +19,10 @@ function App() {
 		<SelectProvider>
 		<div>
 			<Navbar />
-			<div className="">
+			{/* <div className="">
 				<h1>Bienvenidos al SIA</h1>
 				<div className="cub-title">Sistema de Informacion Academica</div>
-			</div>
+			</div> */}
 			<Outlet />
 		</div>
 		</SelectProvider>
