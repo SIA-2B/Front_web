@@ -16,6 +16,7 @@ import {
 	Route,
 } from "react-router-dom";
 import Grupos from "./pages/Grupos";
+import Integration from "./pages/Integration";
 
 const client = new ApolloClient({
 	uri: "http://8dd1-186-82-184-145.ngrok.io/graphql",
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
 			<Route path="academicInfo" element={<AcedemicInfo />} />
 			<Route path="personal_info" element={<PersonalInfo />} />
 			<Route path="grades" element={<Grades/>} /> 
+			<Route path="integration" element={<Integration/>} /> 
 			{/* ... etc. */}
 		</Route>
 	)
