@@ -79,8 +79,14 @@ export const CoursesA = ({ cursos }) => {
 				<table cellPadding="0" cellSpacing="0" border="0">
 					<tbody>
 						{arr.map((row, index) => (
+							
 							<tr key={index}>
+								
+								<Link to={"/groups"}
+								onClick={(e) => {
+								a.idGrupo=row.id}}>
 								<td>{row.id.substring(1, 10)}</td>
+								</Link>
 								<td>{row.nombre}</td>
 								<td>{row.creditos}</td>
 								<td>{row.tipologia}</td>
