@@ -18,8 +18,8 @@ import {
 import Grupos from "./pages/Grupos";
 
 const client = new ApolloClient({
-	// uri: "http://163f-186-82-184-145.ngrok.io/graphql",
-	uri: "http://localhost:5001/graphql",
+	uri: "http://8dd1-186-82-184-145.ngrok.io/graphql",
+	// uri: "http://localhost:5001/graphql",
 	
 	cache: new InMemoryCache(),
 });
