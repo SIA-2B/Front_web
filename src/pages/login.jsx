@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { GET_TOKEN } from "../features/auth/auth.mutations";
 import "../styles/login.css";
@@ -8,8 +9,6 @@ const Login = () => {
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
-
-	console.log("Esto es la respuesta", result);
 
 	if (result.data) {
 		localStorage.setItem("token", result.data.createAuth.token);
@@ -46,9 +45,7 @@ const Login = () => {
 					Login
 				</button>
 				{result.data && (
-					<div className="">
-						Este es el token: {result.data.createAuth.token}
-					</div>
+					<Navigate to="/personal_info" replace={false} />
 				)}
         {result.error && (<div className="white-text">El usuario o Contraseña es incorrecto</div>)}
 			</div>
