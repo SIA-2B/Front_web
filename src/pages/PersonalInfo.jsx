@@ -17,7 +17,7 @@ const PersonalInfo = () => {
 
 	return (
 		<>
-			<h2>Información Personal</h2>
+			<h1>Información Personal</h1>
 			<div className="personal-info">
 				<div className="info-card">
 					<div className="info">{data.personaById.idPersona}</div>

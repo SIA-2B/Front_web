@@ -11,6 +11,10 @@ const Login = () => {
 
   console.log("Esto es la respuesta", result);
 
+  if(result.data) {
+    localStorage.setItem('token', result.data.createAuth.token);
+    localStorage.setItem('username', username);
+  }
 
   return (
     <>
