@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { GET_PERSONA_BY_ID, GET_PERSONA_BY_USERNAME } from "../features/personal_info/personal_info.querys";
+import {
+	GET_PERSONA_BY_ID,
+	GET_PERSONA_BY_USERNAME,
+} from "../features/personal_info/personal_info.querys";
 import "../styles/personal_info.css";
 
 const PersonalInfo = () => {
-	const [username, setUsername] = useState(localStorage.getItem('username'));
+	const [username, setUsername] = useState(localStorage.getItem("username"));
+	const [token, setToken] = useState(localStorage.getItem("token"));
+	const [itsAuth, setItsAuth] = useState(true);
 	useEffect(() => {
 		document.title = "Información Personal";
+		console.log(token, "Este es el token que esta almacenado");
+		if (token == null || token == undefined) {
+			setItsAuth(false);
+		}
 	}, []);
 
 	const { loading, error, data } = useQuery(GET_PERSONA_BY_USERNAME, {
@@ -20,6 +30,7 @@ const PersonalInfo = () => {
 
 	return (
 		<>
+			{/* {!itsAuth && <Navigate to="/login" replace={false} />} */}
 			<h1>Información Personal</h1>
 			<div className="personal-info">
 				<div className="info-card">
@@ -107,7 +118,9 @@ const PersonalInfo = () => {
 					<div className="title">Lugar Recidencia</div>
 				</div>
 				<div className="info-card">
-					<div className="info">{data.personaByUsername.estratoSocioeconomico}</div>
+					<div className="info">
+						{data.personaByUsername.estratoSocioeconomico}
+					</div>
 					<div className="title">Estrato</div>
 				</div>
 				<div className="info-card">
@@ -115,7 +128,9 @@ const PersonalInfo = () => {
 					<div className="title">Libreta Militar</div>
 				</div>
 				<div className="info-card">
-					<div className="info">{data.personaByUsername.fechaRegistroSistema}</div>
+					<div className="info">
+						{data.personaByUsername.fechaRegistroSistema}
+					</div>
 					<div className="title">Fecha de Registro</div>
 				</div>
 				<div className="info-card">

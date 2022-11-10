@@ -28,6 +28,9 @@ const Navbar = () => {
 					<li>
 						<Link to={"grades"}>Calificaciones</Link>
 					</li>
+					<li>
+						<Link to={"login"}>Cerrar Sesión</Link>
+					</li>
 				</ul>
 			</div>
 			

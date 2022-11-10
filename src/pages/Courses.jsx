@@ -18,8 +18,7 @@ const Courses = () => {
 	const cur = useQuery(GET_COURSES);
 	const [getAllCourse, result] = useLazyQuery(GET_COURSES);
 
-	console.log(getAllCourse);
-
+	// console.log(getAllCourse);
 	return (
 		<div>
 			<h1>

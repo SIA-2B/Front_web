@@ -7,6 +7,10 @@ import "../styles/login.css";
 const Login = () => {
 	const [getToken, result] = useMutation(GET_TOKEN);
 
+  useEffect(() => {
+		localStorage.clear();
+	}, []);
+
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
