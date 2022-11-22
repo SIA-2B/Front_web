@@ -2,12 +2,15 @@ FROM node:16
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ADD . .
 
 RUN npm install
 
-COPY . .
-
-EXPOSE 5173
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["npm", "run", "dev"]
+
+EXPOSE 5173
