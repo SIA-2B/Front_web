@@ -29,7 +29,10 @@ const Navbar = () => {
 						<Link to={"grades"}>Calificaciones</Link>
 					</li>
 					<li>
-						<Link to={"/"}>???</Link>
+						<Link to={"integration"}>Integración</Link>
+					</li>
+					<li>
+						<Link to={"login"}>Cerrar Sesión</Link>
 					</li>
 				</ul>
 			</div>

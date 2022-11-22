@@ -1,30 +1,43 @@
-import React, { useEffect } from "react";
-import { useQuery } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import { useLazyQuery } from "@apollo/client";
 import { GET_GRADES_BY_ID } from "../features/grades/grades.querys";
 
-
 export const GradesById = () => {
+	const [getInfo, { loading, error, data }] = useLazyQuery(GET_GRADES_BY_ID);
 
-    const { loading, error, data } = useQuery(GET_GRADES_BY_ID, {
-        variables: { var_id: 2},
-    });
-    
-    console.log(loading, error, data);
-    
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error {error}</div>;
-    
-    return (
-        <>
-            <div>
-                <div className="title">Informacion academica</div>
-                {Object.keys(data.gradeById).map((key) =>
-                <div>
-                    {key}:{data.gradeById[key]}
-                </div>
-                    )}
-            </div>
-        </>
-    );
-    
+	const [gradeId, setGradeId] = useState("");
+
+	console.log(loading, error, data);
+
+	//data.gradeById
+
+	return (
+		<>
+			<h1>Informacion académica</h1>
+			<div className="header-grade">
+				<input
+					value={gradeId}
+					onChange={(e) => setGradeId(e.target.value)}
+				></input>
+				<button
+					onClick={(e) => {
+						e.preventDefault();
+						getInfo({ variables: { var_id: gradeId } });
+					}}
+				>
+					Buscar
+				</button>
+			</div>
+			<div className="content-grade">
+				{data && (
+					<div className="result-grade">
+						<span>
+							{data.gradeById.courseId} - {data.gradeById.courseName}
+						</span>
+                        <span>Resultado de la busqueda</span>
+					</div>
+				)}
+			</div>
+		</>
+	);
 };

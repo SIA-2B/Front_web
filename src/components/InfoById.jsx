@@ -24,8 +24,8 @@ export const InfoById = () => {
         <>
             <div>
                 <div className="title">Informacion academica</div>
-                {Object.keys(data.datosById).map((key) =>
-                <div>
+                {Object.keys(data.datosById).map((key, index) =>
+                <div key={index}>
                     {key}:{data.datosById[key]}
                 </div>
                     )}

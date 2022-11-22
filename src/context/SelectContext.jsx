@@ -5,6 +5,8 @@ const SelectContext = React.createContext();
 
 export function SelectProvider(props){
     const cur  = useQuery(GET_PLANES);
+    const [idGrupo,setIdGrupo] =useState("0005")
+    const [redi, setRedi]= useState(false);
     const [selectId,setselectId] = useState("Any");
     const [selectNombre,setselectNombre] = useState("Any");
     const [selectCreditos,setselectCreditos] = useState("Any");
@@ -13,6 +15,13 @@ export function SelectProvider(props){
     const [selectNivelestudio,setselectNivelestudio] = useState("Any");
     const [selectFacultad,setselectFacultad] = useState("Any");
     const [selectCarrera,setselectCarrera] = useState("Any");
+
+    const cRedi =({value})=>{
+        setRedi(value)
+    }
+    const cidGrupo=({value})=>{
+        setIdGrupo(value)
+    }
 
     const handleSeselectId =({value})=>{
         setselectId(value)
@@ -51,6 +60,10 @@ export function SelectProvider(props){
             selectFacultad,
             selectCarrera,
             cur,
+            redi,
+            idGrupo,
+            cRedi,
+            cidGrupo,
             handleSelecTipologia,
             handleSelectCreditos,
             handleSelectNombre,
@@ -61,7 +74,7 @@ export function SelectProvider(props){
             handleSelectCarrera,
 
         })
-    },[selectId,selectNombre,selectCreditos,selectTipologia,selectSede,selectNivelestudio,selectFacultad,selectCarrera,cur])
+    },[ redi,idGrupo,selectId,selectNombre,selectCreditos,selectTipologia,selectSede,selectNivelestudio,selectFacultad,selectCarrera,cur])
 
     return <SelectContext.Provider value={value} {...props}/>
 }

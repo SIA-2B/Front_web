@@ -1,0 +1,14 @@
+.course-info {
+	color: white;
+}
+
+.course-list-item {
+	border: 1px solid black;
+	background: white;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.course-list-item div span {
+	color: red;
+}
