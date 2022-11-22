@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Citations from "./pages/Citations";
 import Courses from "./pages/Courses";
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import AcedemicInfo from "./pages/Academic_info";
 import PersonalInfo from "./pages/PersonalInfo";
 import Grades from "./pages/Grades"
@@ -19,9 +19,8 @@ import Grupos from "./pages/Grupos";
 import Integration from "./pages/Integration";
 
 const client = new ApolloClient({
-	uri: "http://8dd1-186-82-184-145.ngrok.io/graphql",
-	// uri: "http://localhost:5001/graphql",
-	
+	//uri: "http://8dd1-186-82-184-145.ngrok.io/graphql",
+	uri: "http://35.229.23.105:5000/graphql",
 	cache: new InMemoryCache(),
 });
 
