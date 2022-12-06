@@ -20,7 +20,9 @@ import Integration from "./pages/Integration";
 
 const client = new ApolloClient({
 	//uri: "http://8dd1-186-82-184-145.ngrok.io/graphql",
-	uri: "http://10.116.2.178:5000/graphql",
+	
+	uri: "https://34.174.108.171:80/graphql",
+	// uri: "http://10.116.2.178:5000/graphql",
 	cache: new InMemoryCache(),
 });
 
